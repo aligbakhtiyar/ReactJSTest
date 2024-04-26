@@ -16,7 +16,7 @@ function UpdateCount() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://crossorigin.me/https://node-js-app-liard.vercel.app/api/data`);
+      const response = await axios.get(`https://node-js-app-liard.vercel.app/api/data`);
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
