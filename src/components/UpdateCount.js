@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+//onst BASE_URL = process.env.BASE_URL
 
 function UpdateCount() {
   const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ function UpdateCount() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/data');
+      const response = await axios.get(`https://crossorigin.me/https://node-js-app-liard.vercel.app/api/data`);
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -24,7 +25,7 @@ function UpdateCount() {
 
   const handleAddData = async () => {
     try {
-      await axios.post('http://localhost:3001/api/data', { name, phone });
+      await axios.post(`https://node-js-app-liard.vercel.app/api/data`, { name, phone });
       fetchData();
       fetchTotalCount();
       setName('');
@@ -36,7 +37,7 @@ function UpdateCount() {
 
   const handleUpdateData = async () => {
     try {
-      await axios.put(`http://localhost:3001/api/data/${id}`, { name, phone });
+      await axios.put(`https://node-js-app-liard.vercel.app/api/data/${id}`, { name, phone });
       fetchData();
       setName('');
       setPhone('');
@@ -48,7 +49,7 @@ function UpdateCount() {
 
   const fetchTotalCount = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/data/count');
+      const response = await axios.get(`https://node-js-app-liard.vercel.app/api/data/count`);
       setTotalCount(response.data.count);
     } catch (error) {
       console.error('Error fetching total count:', error);
@@ -57,7 +58,7 @@ function UpdateCount() {
 
   const deleteDataById = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/data/${id}`);
+      await axios.delete(`https://node-js-app-liard.vercel.app/api/data/${id}`);
       fetchData();
       fetchTotalCount();
     } catch (error) {
@@ -67,7 +68,7 @@ function UpdateCount() {
 
   const deleteAllData = async () => {
     try {
-      await axios.delete(`http://localhost:3001/api/data`);
+      await axios.delete(`https://node-js-app-liard.vercel.app/api/data`);
       fetchData();
       fetchTotalCount();
     } catch (error) {
