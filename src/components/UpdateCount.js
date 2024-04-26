@@ -9,7 +9,7 @@ function UpdateCount() {
   const [totalCount, setTotalCount] = useState('');
 
   useEffect(() => {
-    fetchData();
+    fetchData(); //git
     fetchTotalCount();
   }, []);
 
